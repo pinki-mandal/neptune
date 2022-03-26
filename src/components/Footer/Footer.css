@@ -1,0 +1,31 @@
+.footer-containet {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-top: 1px solid;
+    line-height: 1.5rem;
+    padding: 0 0 1rem 0;
+    background-color: var(--secondary-color);
+}
+
+ul {
+    color: var(--gray-500);
+}
+
+ul a {
+    color: var(--gray-500);
+}
+
+.gaurantee-container {
+    line-height: 1rem;
+    color: var(--gray-500);
+    margin-top: -.8rem;
+}
+
+.logo {
+    max-height: 4rem;
+}
+
+.txt-size{
+    font-size: .8rem;
+}
