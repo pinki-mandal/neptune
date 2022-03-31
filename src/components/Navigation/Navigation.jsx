@@ -1,8 +1,11 @@
 import React from 'react';
 import "./Navigation.css";
 import { Link } from 'react-router-dom';
+import { useProductContext } from "/home/navgurukul/Documents/GitHub/neptune/src/contexts/ProductsListContext.js";
 
 const Navigation = () => {
+
+    const { productDispatch } = useProductContext()
 
     return (
         <>
@@ -11,7 +14,7 @@ const Navigation = () => {
                     <Link to="/" className="logo">Neptune</Link>
                     <small className='small-txt'>Capture The World</small>
                 </div>
-                <input className="search-bar" type="text" placeholder="Search" />
+                <input onChange={(e) => {productDispatch({type: "SEARCH", payload: e.target.value })}} className="search-bar" type="text" placeholder="Search" />
                 <ul className="side-nav-section">
                     <li><Link to="/Login" className="login-btn">👤</Link></li>
                     <li><Link to="/Wishlist" className="wishlist-btn btn">❤️<span

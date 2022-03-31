@@ -7,6 +7,9 @@
     padding-top: .3rem;
     background-color: var(--secondary-color);
     box-shadow: 1px 1px 1px var(--gray-500);
+    position: sticky;
+    top: 0%;
+    z-index: 1;
 }
 
 .side-nav-section {

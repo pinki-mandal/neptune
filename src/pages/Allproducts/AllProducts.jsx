@@ -1,7 +1,14 @@
+import { Filter, ProductList } from "../../components/index";
+
 const AllProducts = () => {
 
-    return(
-        <h1>Coming soon ...</h1>
+    return (
+        <>
+            <div class="product-container">
+                <Filter />
+                <ProductList />
+            </div>
+        </>
     )
 }
 

@@ -1,0 +1,58 @@
+.side-bar {
+    padding: .8rem;
+    background-color: var(--white);
+    height: 90vh;
+    position: sticky;
+    top: 4.8rem;
+}
+
+.filter-clear {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+}
+
+.price-txt{
+    margin-top: 1.5rem;
+}
+.filter-price {
+    display: flex;
+    justify-content: space-between;
+    color: var(--gray-900);
+    margin: .5rem 0 0rem 0;
+}
+
+.slide-container {
+    margin: .3rem 0 .8rem 0;
+}
+
+.slider {
+    width: 100%;
+    cursor: pointer;
+}
+
+.category-tx {
+    margin: var(--txt-margin) ;
+}
+
+.category-choice, .rating-choice {
+    margin-bottom: 1rem;
+}
+
+.category-checkbox {
+    width: .9rem;
+    height: .9rem;
+    margin-right: .5rem;
+}
+
+.rating-txt {
+    margin: var(--txt-margin);
+}
+
+.sort-by-txt {
+    margin: var(--txt-margin);
+}
+
+.sort-by {
+    font-size: var(--txt-font-size);
+}

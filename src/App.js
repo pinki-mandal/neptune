@@ -5,10 +5,11 @@ import { Navigation, Footer } from './components/index.js';
 import { Home, AllProducts, Login, Signup, MyCart, SingleProduct, WishList } from "./pages/index.js";
 
 function App() {
-  console.log("bb")
+  console.log("dsd")
   return (
     <div className="App">
       <Navigation />
+
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/AllProducts" element={<AllProducts />}></Route>
@@ -18,6 +19,7 @@ function App() {
         <Route path="/SingleProduct" element={<SingleProduct />}></Route>
         <Route path="/WishList" element={<WishList />}></Route>
       </Routes>
+      
       <Footer />
     </div>
   );
