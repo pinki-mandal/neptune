@@ -8,12 +8,15 @@
   --primary-color: rgb(192, 156, 103);
   --secondary-color: rgb(231, 228, 220);
   --footer-container: rgb(205, 206, 189);
-  --detail-cart: rgb(164, 155, 170);
   --white: rgb(255, 255, 255);
   --gray-200: rgb(211, 211, 211);
   --gray-500: rgb(128, 128, 128);
   --gray-900: rgb(169, 169, 169);
   --blue-600: rgb(0, 0, 255);
+  --txt-margin: 2rem 0 .5rem 0;
+  --txt-font-size: 1rem;
+  --red-900: rgb(255, 0, 0);
+  --main-body: rgb(247, 240, 240);
 }
 
 button {
