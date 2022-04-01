@@ -1,7 +1,7 @@
 import React from 'react';
 import "./Navigation.css";
 import { Link } from 'react-router-dom';
-import { useProductContext } from "/home/navgurukul/Documents/GitHub/neptune/src/contexts/ProductsListContext.js";
+import { useProductContext } from "../../contexts/ProductsListContext";
 
 const Navigation = () => {
 
