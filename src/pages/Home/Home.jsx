@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
-import { useCategoryContext } from "../../contexts/CategoryContext"
-import { useProductContext } from "../../contexts/ProductsListContext"
+import { useCategoryContext } from "../../contexts/CategoryContext";
+import { useProductContext } from "../../contexts/ProductsListContext";
 
 const Home = () => {
 

@@ -1,6 +1,6 @@
 import React from "react";
 import "./Filter.css";
-import { useProductContext } from "/home/navgurukul/Documents/GitHub/neptune/src/contexts/ProductsListContext.js";
+import { useProductContext } from "../../contexts/ProductsListContext";
 
 const Filter = () => {
 
