@@ -3,7 +3,7 @@ import { Login } from "./Auth/Login";
 import { Signup } from "./Auth/Signup";
 import { Home } from "./Home/Home";
 import { MyCart } from "./MyCart/MyCart";
-import { SingleProduct } from "./SingleProduct/SingleProduct";
+import { ErrorPage } from "./404-page/PageNotFound";
 import { WishList } from "./WishList/WishList";
 
-export { AllProducts, Login, Signup, Home, MyCart, SingleProduct, WishList }
+export { AllProducts, Login, Signup, Home, MyCart, ErrorPage, WishList }

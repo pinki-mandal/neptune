@@ -1,14 +1,12 @@
 import axios from "axios";
 import { createContext, useContext, useEffect, useReducer, useState } from "react";
-import { productReducer } from "./ReducerFunc";
+import { productReducer, addCartReducer, wishListReducer } from "./ReducerFunc";
 
 const productContext = createContext();
 
-
-
 const ProductListProvider = ({ children }) => {
 
-    const [productState, productDispatch] = useReducer(productReducer, {
+    const [productState, productDispatch] = useReducer( productReducer, {
         sort: null,
         byStock: false,
         byFastDelivery: false,
@@ -20,8 +18,13 @@ const ProductListProvider = ({ children }) => {
         bySamsung: null,
         byRating: null,
         bySearch: "",
-        byRange: null
+        byRange: null,
+        byCategory: []
     });
+
+    const [ addCartState, addCartDispatch ] = useReducer( addCartReducer, { addCart: [] })
+
+    const [ wishListState, wishListDispatch ] = useReducer( wishListReducer, { addWishList: [] })
 
     const [product, setProduct] = useState([]);
     useEffect(() => {
@@ -37,7 +40,7 @@ const ProductListProvider = ({ children }) => {
     }, []);
 
     return (
-        <productContext.Provider value={{ product, productState, productDispatch }}>
+        <productContext.Provider value={{ product, productState, productDispatch, addCartState, addCartDispatch, wishListState, wishListDispatch }}>
             {children}
         </productContext.Provider>
     );

@@ -3,7 +3,7 @@
     background-color: var(--white);
     height: 90vh;
     position: sticky;
-    top: 4.8rem;
+    top: 4.6rem;
 }
 
 .filter-clear {
@@ -12,9 +12,15 @@
     margin-bottom: .5rem;
 }
 
-.price-txt{
+.clear-btn {
+    cursor: pointer;
+    text-decoration:underline;
+}
+
+.price-txt {
     margin-top: 1.5rem;
 }
+
 .filter-price {
     display: flex;
     justify-content: space-between;
@@ -32,7 +38,7 @@
 }
 
 .category-tx {
-    margin: var(--txt-margin) ;
+    margin: var(--txt-margin);
 }
 
 .category-choice, .rating-choice {
