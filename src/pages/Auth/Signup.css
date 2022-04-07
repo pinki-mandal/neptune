@@ -1,0 +1,68 @@
+.signup-main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.signup-container {
+    display: flex;
+    flex-direction: column;
+    background-color: lightgray;
+    border-radius: 1rem;
+    width: 25rem;
+    padding: 1rem 2rem;
+}
+
+.signup-heading {
+    text-align: center;
+    margin: 0 0 1rem 0;
+}
+
+.input {
+    padding: .4rem;
+    margin-bottom: .8rem;
+}
+
+.checkbox-item {
+    margin-top: -1rem;
+}
+
+.checkbox-input {
+    width: 1rem;
+    height: 1rem;
+}
+
+.submit-btn {
+    font-size: 1.1rem;
+    padding: .4rem;
+    margin: 1rem 0 .5rem 0;
+}
+
+.login-link {
+    text-align: center;
+}
+
+.or-option {
+    text-align: center;
+}
+
+.signup-way {
+    text-align: center;
+    margin: .5rem 0 .5rem 0;
+}
+
+.logo-img {
+    width: 5vh;
+}
+
+.twitter-logo {
+    border-radius: 50%;
+}
+
+@media screen and (max-width:520px) {
+    html {
+        font-size: 13px;
+    }
+}
