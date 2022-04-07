@@ -12,7 +12,7 @@ const Filter = () => {
         <aside className="side-bar">
             <div className="filter-clear">
                 <h4>Filter</h4>
-                <a className="clear-btn" onClick={() => { productDispatch({ type: "CLEAR" }) }}>Clear</a>
+                <p className="clear-btn" onClick={() => { productDispatch({ type: "CLEAR" }) }}>Clear</p>
             </div>
             <hr />
             <h4 className="price-txt">Price</h4>
