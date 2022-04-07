@@ -35,7 +35,7 @@ const Footer = () => {
                     </h5>
                     <ul>
                         <li><small><a href="" target="_blank">LinkedIn</a></small></li>
-                        <li><small><a href="" target="_blank">GitHub</a></small></li>
+                        <li><small><a href="https://github.com/manojkumar8400" target="_blank">GitHub</a></small></li>
                         <li><small><a href="" target="_blank">Twitter</a></small></li>
                         <li><small><a href="" target="_blank">Instagram</a></small></li>
                     </ul>

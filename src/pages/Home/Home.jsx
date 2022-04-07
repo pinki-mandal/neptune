@@ -21,12 +21,12 @@ const Home = () => {
             </section>
             <h3 className="new-colle-title">Available Brands</h3>
             <div className="new-colle-item">
-                {category.map(({ categoryName, image }) => {
+                {category.map(({ category, image }) => {
                     return (
                         <Link to="/AllProducts" >
-                            <div onClick={() => { productDispatch({ type: "Home_Category", payload: categoryName }) }} className="category-img">
+                            <div onClick={() => { productDispatch({ type: "Home_Category", payload: category }) }} className="category-img">
                                 <img className="img-style" src={image} />
-                                <p className="category-txt">{categoryName}</p>
+                                <p className="category-txt">{category}</p>
                             </div>
                         </Link>
                     );

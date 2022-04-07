@@ -1,0 +1,111 @@
+.cart-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.total-price-container {
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 1rem;
+    width: 20%;
+    position: sticky;
+    top: 12rem;
+    border: 2px solid;
+    background-color: var(--white);
+}
+
+
+/*                      Price Containet Style                     */
+
+
+.cart-container {
+    margin-bottom: 1rem;
+    background-color: rgb(244, 246, 247);
+}
+
+.flex-distance {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.wishlistt {
+    display: grid;
+    margin: 1rem 0;
+}
+
+.margin {
+    margin: 1rem 0;
+}
+
+.add-cart-container {
+    margin-bottom: 1rem;
+    background-color: var(--white);
+}
+
+.cart-btn {
+    font-size: 1rem;
+    padding: .2rem 1.5rem;
+    width: 13rem;
+    margin-top: 2rem;
+}
+
+.about-cart-product {
+    display: grid;
+    gap: .5rem;
+}
+
+.price-count-section {
+    display: flex;
+}
+
+.counting-section {
+    margin-left: 3rem;
+}
+
+.count-btn {
+    padding: .5rem .7rem;
+    border-radius: 50%;
+}
+
+.counter {
+    margin: 0 .5rem;
+}
+
+.order-btn-container {
+    display: grid;
+    justify-content: center;
+    margin: .5rem;
+}
+
+.order-btn {
+    width: 10rem;
+    padding: .4rem 0;
+    background-color: var(--secondary-color);
+}
+
+/*                   Modal Container                 */
+
+.model-container{
+    position: relative;
+}
+
+.container {
+    display: none;
+    margin-top: 6rem;
+    padding: 1rem;
+    text-align: center;
+    border: 2px solid;
+    width: 20rem;
+    position: absolute;
+    top: 2rem;
+    right: 30rem;
+    background-color: var(--white);
+}
+
+.ok-btn {
+    padding: .5rem 1rem;
+    margin-top: 1rem;
+}

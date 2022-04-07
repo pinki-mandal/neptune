@@ -1,0 +1,5 @@
+.error-container{
+    display: grid;
+    justify-content: center;
+    margin: 14.5rem;
+}

@@ -5,7 +5,7 @@ import { useProductContext } from "../../contexts/ProductsListContext";
 
 const Navigation = () => {
 
-    const { productDispatch } = useProductContext()
+    const { addCartState:{addCart}, wishListState: { addWishList }, productDispatch } = useProductContext()
 
     return (
         <>
@@ -18,9 +18,9 @@ const Navigation = () => {
                 <ul className="side-nav-section">
                     <li><Link to="/Login" className="login-btn">👤</Link></li>
                     <li><Link to="/Wishlist" className="wishlist-btn btn">❤️<span
-                        className="badge">5</span></Link></li>
+                        className="badge">{addWishList.length}</span></Link></li>
                     <li><Link to="/MyCart" className="add-cart-btn btn"> &#128722; <span
-                        className="badge">2</span></Link></li>
+                        className="badge">{addCart.length}</span></Link></li>
                 </ul>
             </nav>
         </>

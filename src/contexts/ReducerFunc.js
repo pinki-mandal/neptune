@@ -25,6 +25,14 @@ export const productReducer = (state, action) => {
             return { ...state, bySearch: action.payload };
         case "RANGE":
             return { ...state, byRange: action.payload }
+        case "CATEGORY":{
+            if (!state.byCategory.includes(action.payload)){
+                return {...state, byCategory:[...state.byCategory,action.payload]}
+            }else{
+                const array = state.byCategory.filter(prod=>prod !== action.payload);
+                return {...state,byCategory:array};
+            }
+            }
         case "CLEAR":
             return {
                 sort: null,
@@ -38,9 +46,45 @@ export const productReducer = (state, action) => {
                 bySamsung: null,
                 byRating: null,
                 bySearch: "",
-                byRange: null
+                byRange: null,
+                byCategory: []
             }
         default:
             return state;
     }
 }
+
+
+const addCartReducer = (state, action) => {
+    switch (action.type) {
+        case "ADD_TO_CART":
+            return {addCart: [...state.addCart, { ...action.payload, qty: 1 }] };
+        case "REMOVE_FROM_CART":
+            return {addCart:state.addCart.filter((i) => i._id !== action.payload._id)}
+        case "INCREMENT" :
+            const increaseValue = state.addCart.map(data => data.id === action.payload.id ?
+                 {...action.payload,qty:action.payload.qty+1} : data);
+            return{addCart:increaseValue};
+        case "DECREMENT" :
+            if (action.payload.qty>1){
+                const dicreaseValue = state.addCart.map(data => data.id === action.payload.id ?
+                        {...action.payload,qty:action.payload.qty-1} : data);
+                    return{addCart:dicreaseValue};
+                }
+        default:
+            return state;
+    }
+}
+
+const wishListReducer = (state, action) => {
+    switch (action.type) {
+        case "ADD_TO_WISHLIST":
+            return {addWishList: [...state.addWishList,{...action.payload, qty: 1}]};
+        case "REMOVE_FROM_WISHLIST":
+            return {addWishList:state.addWishList.filter((i) => i.id !== action.payload.id)}
+        default:
+            return state;
+    }
+}
+
+export { addCartReducer, wishListReducer }
