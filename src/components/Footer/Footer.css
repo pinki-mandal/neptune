@@ -1,24 +1,22 @@
-.footer-containet {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+.footer-container {
     border-top: 1px solid;
     line-height: 1.5rem;
     padding: 0 0 1rem 0;
     background-color: var(--secondary-color);
+    z-index: 2;
 }
 
 ul {
-    color: var(--gray-500);
+    color: var(--white);
 }
 
 ul a {
-    color: var(--gray-500);
+    color: var(--white);
 }
 
 .gaurantee-container {
     line-height: 1rem;
-    color: var(--gray-500);
+    color: var(--gray-900);
     margin-top: -.8rem;
 }
 
@@ -26,6 +24,6 @@ ul a {
     max-height: 4rem;
 }
 
-.txt-size{
+.txt-size {
     font-size: .8rem;
 }

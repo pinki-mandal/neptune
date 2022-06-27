@@ -1,21 +1,22 @@
+.wish-list-container {
+    background-color: var(--white);
+}
+
 .wishlist-container {
     display: grid;
     grid-template-columns: 25rem 1fr;
     align-content: center;
-    padding: 1rem;
-    margin: 1rem 0;
 }
 
-.all-about-product {
+.about-product {
     display: grid;
     grid-template-columns: 50% 50%;
     justify-content: space-evenly;
 }
 
 .item-length {
-    text-align: center;
     background-color: var(--gray-200);
-    padding: .5rem;
+    height: fit-content;
 }
 
 .add-btn {
@@ -23,4 +24,6 @@
     padding: .2rem 2rem;
     font-size: 1rem;
     width: 13rem;
+    color: var(--secondary-color);
+    border: 3px solid;
 }

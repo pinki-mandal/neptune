@@ -1,8 +1,4 @@
 .login-main-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     height: 85vh;
 }
 
@@ -14,13 +10,7 @@
 }
 
 .login-heading {
-    text-align: center;
     margin: 1rem 0 2rem 0;
-}
-
-.mail-password-container {
-    display: flex;
-    flex-direction: column;
 }
 
 .mail-input {
@@ -31,11 +21,6 @@
 .pass-input {
     padding: .4rem;
     margin: .1rem 0 1rem 0;
-}
-
-.forget-password-section {
-    display: flex;
-    justify-content: space-between;
 }
 
 .checkbox-inpt {
@@ -49,18 +34,11 @@
 }
 
 .create-account-link {
-    display: block;
-    text-align: center;
     font-size: 1.2rem;
 }
 
 .logo-img {
     width: 5vh;
-}
-
-.signup-way-container {
-    text-align: center;
-    margin: 2rem 0 .5rem 0;
 }
 
 .twitter-logo {

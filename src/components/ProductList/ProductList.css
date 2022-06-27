@@ -1,40 +1,25 @@
 .product-container {
     display: grid;
     grid-template-columns: 13rem 1fr;
-    grid-gap: 15px;
-    background-color: var(--gray-200);
+    gap: .5rem;
+    background-color: var(--secondary-color);
+    margin-top: 4.2rem;
 }
 
 .main-container {
     background-color: var(--white);
-    position: relative;
 }
 
 .wishlist {
-    display: grid;
     grid-template-columns: 25rem 1fr;
     align-content: center;
     padding: 1rem;
-}
-
-.notification{
-    position: absolute;
-    right: 3rem;
-    background-color: gold;
-    padding: .6rem;
-    border-bottom-left-radius: .7rem;
-    border-bottom-right-radius: .7rem;
-}
-
-.img-container {
-    display: flex;
-    justify-content: center;
-    position: relative;
+    display: grid;
+    margin: 1rem 0;
 }
 
 .camera-images {
     height: 10rem;
-    text-align: center;
 }
 
 .wishlist-icon {
@@ -42,7 +27,7 @@
     right: 1rem;
 }
 
-.heart-btn {
+.like-btn {
     border: none;
     font-size: 1.5rem;
     font-weight: 900;
@@ -52,11 +37,6 @@
 
 .setColor {
     color: var(--red-900);
-}
-
-.about-product {
-    display: flex;
-    justify-content: space-between;
 }
 
 .camera-title {
@@ -74,20 +54,20 @@
 }
 
 .btn-container {
-    display: grid;
     gap: .3rem;
-    margin-top: 1rem;
 }
 
-.go-btn-style{
-    background-color: var(--gray-200);
+.go-btn-style {
+    background-color: var(--secondary-color);
+    color: var(--white) !important;
+    border: 3px solid var(--secondary-color) !important;
 }
 
-.go-btn-style:hover{
-    background-color: var(--white);
+.go-btn-style:hover {
+    background-color: rgb(69, 127, 150);
 }
 
-.btn-style{
+.btn-style {
     background-color: var(--white);
 }
 
@@ -95,6 +75,8 @@
     padding: .2rem 2rem;
     font-size: 1rem;
     width: 13rem;
+    color: var(--secondary-color);
+    border: 3px solid;
 }
 
 .price-section {

@@ -6,7 +6,7 @@
 
 :root {
   --primary-color: rgb(192, 156, 103);
-  --secondary-color: rgb(231, 228, 220);
+  --secondary-color: rgb(78, 165, 199);
   --footer-container: rgb(205, 206, 189);
   --white: rgb(255, 255, 255);
   --gray-200: rgb(211, 211, 211);
@@ -20,9 +20,13 @@
   --main-body: rgb(247, 240, 240);
 }
 
-  .App {
-    background-color: rgb(244, 246, 247);
-  }
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  background-color: rgb(244, 246, 247);
+}
 
 button {
   cursor: pointer;
@@ -30,6 +34,7 @@ button {
 
 a {
   text-decoration: none;
+  color: var(--black-900);
 }
 
 ul, ol {
