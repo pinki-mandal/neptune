@@ -1,5 +1,7 @@
-import React, { useState } from "react";
-import {Link} from "react-router-dom";
+import React from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Link } from "react-router-dom";
 import "./ProductList.css";
 import { useProductContext } from "../../contexts/ProductsListContext";
 
@@ -49,31 +51,42 @@ const ProductList = () => {
             sortedProducts = sortedProducts.filter((prod) => prod.price >= byRange)
         }
         if (byCategory[0] !== undefined) {
-            sortedProducts = sortedProducts.filter((prod)=>byCategory.includes(prod.brand));
+            sortedProducts = sortedProducts.filter((prod) => byCategory.includes(prod.brand));
         }
         return sortedProducts
     }
 
+    const addCartHandler = (items) => {
+        addCartDispatch({ type: "ADD_TO_CART", payload: items });
+        toast.success("Item added in Cart");
+    }
+
+    const addWishlistHandler = (items) => {
+        wishListDispatch({ type: "ADD_TO_WISHLIST", payload: items });
+        toast.success("Item added in Wishlist");
+    }
+
     return (
-        <div className="main-container">
+        <div className="main-container relative">
+            <h3 className="m-8">Showing {transformProducts().length} of 22 products</h3>
             {
                 transformProducts().map(items => {
                     return (
                         <>
-                            <div className="wishlist">
-                                <div className="img-container">
-                                    <img className="camera-images" src={items.imgURL}
+                            <div className="wishlist grid m-tb-16">
+                                <section className="flex justify-center relative">
+                                    <img className="camera-images text-align" src={items.imgURL}
                                         alt="camera image" />
                                     {
                                         addWishList.some(item => item.id === items.id) ? (
-                                            <button className="heart-btn wishlist-icon setColor">&#10084;</button>
+                                            <button className="like-btn wishlist-icon setColor">&#10084;</button>
                                         ) : (
-                                            <button onClick={() => wishListDispatch({ type: "ADD_TO_WISHLIST", payload: items })} className="heart-btn wishlist-icon">&#10084;</button>
+                                            <button onClick={() => addWishlistHandler(items)} className="like-btn wishlist-icon">&#10084;</button>
                                         )
                                     }
-                                </div>
-                                <div className="about-product">
-                                    <div>
+                                </section>
+                                <div className="flex justify-between">
+                                    <section>
                                         <p className="camera-title">{items.title}</p>
                                         <p className="rating">{items.rating}⭐ 65 Ratings & 472 Reviews</p>
                                         <ul className="features">
@@ -84,27 +97,27 @@ const ProductList = () => {
                                             <li>{items.stock ? <div>InStock</div> : <div>Out Of Stock</div>}</li>
                                             <li>Brand : {items.brand}</li>
                                         </ul>
-                                        <div className="btn-container">
+                                        <section className="btn-container grid m-t-16">
                                             {
                                                 addCart.some(i => i.id === items.id) ? (
-                                                    <Link to="/MyCart">
+                                                    <Link to="/mycart">
                                                         <button className="add-to-cart-btn go-btn-style">Go to Cart</button>
                                                     </Link>
                                                 ) : (
-                                                    <button disabled={!items.stock} className="add-to-cart-btn btn-style" onClick={() => addCartDispatch({ type: "ADD_TO_CART", payload: items })}>
+                                                    <button disabled={!items.stock} className="add-to-cart-btn btn-style" onClick={_ => addCartHandler(items)}>
                                                         {items.stock ? "Add To Cart" : "Out Of Stock"}</button>
                                                 )
                                             }
-                                        </div>
-                                    </div>
-                                    <div className="price-section">
+                                        </section>
+                                    </section>
+                                    <section className="price-section">
                                         <h3>₹{items.price}</h3>
                                         <small className="price-off">₹{items.offPrice}</small>
                                         <small className="percent-off">5% off</small>
                                         <br />
                                         <small>Free delivery</small>
                                         <p>{items.delivery ? <div>FastDelivary</div> : <div>3-4 Days</div>}</p>
-                                    </div>
+                                    </section>
                                 </div>
                             </div>
                             <hr />

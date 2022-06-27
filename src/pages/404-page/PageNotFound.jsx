@@ -1,11 +1,11 @@
-import "./PageNotFound.css"; 
+import "./PageNotFound.css";
 
 const ErrorPage = () => {
 
-    return(
+    return (
         <div className="error-container">
-        <h1>404 Error</h1> 
-        <h1>Page Not Found</h1>
+            <h1>404 Error</h1>
+            <h1>Page Not Found</h1>
         </div>
     )
 }

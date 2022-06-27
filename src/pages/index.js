@@ -1,9 +1,7 @@
-import { AllProducts } from "./Allproducts/AllProducts";
-import { Login } from "./Auth/Login";
-import { Signup } from "./Auth/Signup";
-import { Home } from "./Home/Home";
-import { MyCart } from "./MyCart/MyCart";
-import { ErrorPage } from "./404-page/PageNotFound";
-import { WishList } from "./WishList/WishList";
-
-export { AllProducts, Login, Signup, Home, MyCart, ErrorPage, WishList }
+export { AllProducts } from "./Allproducts/AllProducts";
+export { Login } from "./Auth/Login";
+export { Signup } from "./Auth/Signup";
+export { Home } from "./Home/Home";
+export { MyCart } from "./MyCart/MyCart";
+export { ErrorPage } from "./404-page/PageNotFound";
+export { WishList } from "./WishList/WishList";

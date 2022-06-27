@@ -1,0 +1,29 @@
+.model-container {
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    z-index: 2;
+}
+
+.container {
+    padding: 1rem;
+    width: 20rem;
+    border: 3px solid var(--secondary-color);
+    background-color: var(--white);
+}
+
+.flex-distance {
+    width: 100%;
+}
+
+.ok-btn {
+    padding: .3rem 1rem;
+    background-color: var(--secondary-color);
+    color: var(--white);
+    border: none;
+    font-size: 1.2rem;
+}

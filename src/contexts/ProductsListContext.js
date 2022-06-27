@@ -6,7 +6,7 @@ const productContext = createContext();
 
 const ProductListProvider = ({ children }) => {
 
-    const [productState, productDispatch] = useReducer( productReducer, {
+    const [productState, productDispatch] = useReducer(productReducer, {
         sort: null,
         byStock: false,
         byFastDelivery: false,
@@ -22,11 +22,15 @@ const ProductListProvider = ({ children }) => {
         byCategory: []
     });
 
-    const [ addCartState, addCartDispatch ] = useReducer( addCartReducer, { addCart: [] })
+    const [addCartState, addCartDispatch] = useReducer(addCartReducer, { addCart: [] });
 
-    const [ wishListState, wishListDispatch ] = useReducer( wishListReducer, { addWishList: [] })
+    const [wishListState, wishListDispatch] = useReducer(wishListReducer, { addWishList: [] });
 
+    const [cartItemLength, setCartItemLength] = useState(0);
+    const [totalPrice, setTotalPrice] = useState(0);
+    const [hideCard, setHideCard] = useState(false);
     const [product, setProduct] = useState([]);
+
     useEffect(() => {
         (async () => {
             try {
@@ -40,7 +44,7 @@ const ProductListProvider = ({ children }) => {
     }, []);
 
     return (
-        <productContext.Provider value={{ product, productState, productDispatch, addCartState, addCartDispatch, wishListState, wishListDispatch }}>
+        <productContext.Provider value={{ product, productState, cartItemLength, setCartItemLength, totalPrice, setTotalPrice, hideCard, setHideCard, productDispatch, addCartState, addCartDispatch, wishListState, wishListDispatch }}>
             {children}
         </productContext.Provider>
     );
