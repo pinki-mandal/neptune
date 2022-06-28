@@ -1,8 +1,6 @@
 export const productReducer = (state, action) => {
 
     switch (action.type) {
-        case "Home_Category":
-            return { ...state, byHomeCategory: action.payload }
         case "SORT_BY_PRICE":
             return { ...state, sort: action.payload };
         case "FILTER_BY_STOCK":

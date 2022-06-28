@@ -23,7 +23,7 @@ const Home = () => {
                 {category.map(({ category, image }) => {
                     return (
                         <Link to="/all-products" >
-                            <div onClick={() => { productDispatch({ type: "Home_Category", payload: category }) }} className="category-img">
+                            <div onClick={() => { productDispatch({ type: "CATEGORY", payload: category }) }} className="category-img">
                                 <img className="img-style" src={image} />
                                 <p className="category-txt text-align">{category}</p>
                             </div>
