@@ -42,12 +42,19 @@
 }
 
 .count-btn {
-    padding: 3px .6rem;
-    border-radius: 50%;
-    font-size: 1.5rem;
-    border: 2px solid;
+    border: none;
     background-color: inherit;
     color: var(--secondary-color);
+}
+
+.minus-icon,
+.plus-icon {
+    font-size: 1.8rem;
+}
+
+.quantity {
+    display: inline-block;
+    transform: translate(-10%, -45%);
 }
 
 .order-btn {

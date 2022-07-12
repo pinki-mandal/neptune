@@ -3,103 +3,122 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useProductContext } from "../../contexts/ProductsListContext";
 import { OrderBookModal } from "../../components/index";
+import { useFeatureContext } from "../../contexts/featuresContext";
+import { addToWishlist, incrementDecrementCartValue, removeFromCart } from "../../contexts/Services";
+import { useState } from "react";
+
 
 const MyCart = () => {
 
-    const { addCartState: { addCart }, addCartDispatch, wishListDispatch, wishListState: { addWishList }, setCartItemLength, setTotalPrice, hideCard, setHideCard } = useProductContext();
-    let totalPrice = 0;
+    const { setCartItemLength, setTotalPrice, hideCard, setHideCard } = useProductContext();
+    const { feature: { cart, wishList }, dispatchFeature } = useFeatureContext();
+    const [totalPrice, setTotalValue] = useState(0);
 
-    for (let i in addCart) {
-        totalPrice += addCart[i].price
+    const incrementPrice = () => {
+        cart.reduce((acc,curr) => {
+            acc = (curr.qty+1) * curr.price
+            setTotalValue(acc);
+        },0)
+    }
+
+    const decrementPrice = () => {
+        cart.reduce((acc,curr) => {
+            acc = (curr.qty+1) * curr.price
+            setTotalValue(acc);
+        },0)
     }
 
     const orderPlace = () => {
         setHideCard(true);
-        setCartItemLength(addCart.length);
+        setCartItemLength(cart.qty);
         setTotalPrice(totalPrice);
         toast.success("Your order is added successfully!")
     }
 
-    const addWishlisthandler = (items) => {
-        wishListDispatch({ type: "ADD_TO_WISHLIST", payload: items });
-        toast.success("Item added in Cart");
-    }
-
-    const removeCartHandler = (items) => {
-        addCartDispatch({ type: "REMOVE_FROM_CART", payload: items });
-        toast.success("Item remove from Cart");
+    const actionHandler = (action, items) => {
+        if (action === "AddToWishlist") {
+            addToWishlist(items, dispatchFeature)
+        } else if (action === "RemoveFromCart") {
+            removeFromCart(items._id, dispatchFeature)
+        } else if (action === "increment") {
+            incrementDecrementCartValue(items._id, dispatchFeature, action)
+        } else if (action == "decrement") {
+            incrementDecrementCartValue(items._id, dispatchFeature, action)
+        }
     }
 
     return (
         <div className="cart-container">
             <div className="add-cart-container m-16">
                 {
-                    addCart.length ? <div className="item-length p-8 text-align">
-                        <h3>{addCart.length} item in your cart</h3>
-                    </div> : undefined
+                    cart.length ?
+                        <div className="item-length p-8 text-align">
+                            <h3>{cart.length} item in your cart</h3>
+                        </div> : undefined
                 }
                 {
-                    addCart.map((items) => (
-                        <>
-                            <div className="wishlist m-tb-16">
+                    cart.map((items) => (
+                        <div key={items._id}>
+                            <section className="wishlist m-tb-16">
                                 <section className="img-section relative">
                                     <img className="camera-images" src={items.imgURL}
                                         alt="camera image" />
                                     {
-                                        addWishList.some(item => item.id === items.id) ? (
+                                        wishList.some(item => item.id === items.id) ? (
                                             <button className="like-btn wishlist-icon setColor">&#10084;</button>
                                         ) : (
-                                            <button onClick={() => addWishlisthandler(items)} className="like-btn wishlist-icon">&#10084;</button>
+                                            <button onClick={() => actionHandler("AddToWishlist", items)} className="like-btn wishlist-icon">&#10084;</button>
                                         )
                                     }
                                 </section>
-                                <div className="grid gap-8">
-                                    <div>
+                                <section className="grid gap-8">
+                                    <section>
                                         <p className="cart-camera-title">{items.title}</p>
                                         <span>Brand : {items.brand}</span>
-                                    </div>
-                                    <div className="flex">
-                                        <div className="cart-price-section">
+                                    </section>
+                                    <section className="flex">
+                                        <section className="cart-price-section">
                                             <h3>₹{items.price}</h3>
                                             <small className="price-off">₹{items.offPrice}</small>
                                             <small className="percent-off">15% off</small>
-                                        </div>
-                                        <div className="ml-16">
-                                            <button className="count-btn" onClick={() => addCartDispatch({ type: "DECREMENT", payload: items })}>-</button>
-                                            <span className="m-lr-8">{items.qty}</span>
-                                            <button className="count-btn" onClick={() => addCartDispatch({ type: "INCREMENT", payload: items })}>+</button>
-                                        </div>
-                                    </div>
-                                    <button className="cart-btn btn-style" onClick={() => removeCartHandler(items)}>Remove From Cart</button>
-                                </div>
-                            </div>
+                                        </section>
+                                        <section className="ml-16">
+                                            <button className="count-btn" onClick={() =>{ actionHandler("decrement", items), decrementPrice() }}><span class="material-icons minus-icon">remove_circle_outline</span></button>
+                                            <span className="m-lr-8 quantity">{items.qty}</span>
+                                            <button className="count-btn" onClick={() => { actionHandler("increment", items), incrementPrice() }}><span class="material-icons plus-icon">add_circle_outline</span></button>
+                                        </section>
+                                    </section>
+                                    <button className="cart-btn btn-style" onClick={() => actionHandler("RemoveFromCart", items)}>Remove From Cart</button>
+                                </section>
+                            </section>
                             <hr />
-                        </>
+                        </div>
                     ))
                 }
                 {
-                    addCart.length ? <div className="total-price-container flex-column justify-around p-16 fixed m-t-32">
-                        <h4>PRICE DETAILS</h4>
-                        <hr />
-                        <div className="flex-distance">
-                            <p>Price ({addCart.length} items)</p>
-                            <p>₹{totalPrice}</p>
-                        </div>
-                        <div className="flex-distance">
-                            <p>Delivery-charge</p>
-                            <p>Free</p>
-                        </div>
-                        <hr />
-                        <div className="flex-distance">
-                            <p>Total Amount</p>
-                            <p>₹{totalPrice}</p>
-                        </div>
-                        <div className="grid justify-center m-8">
-                            <button className="order-btn" onClick={orderPlace}>PLACE ORDER</button>
-                        </div>
-                    </div> :
+                    cart.length ?
+                        <div className="total-price-container flex-column justify-around p-16 fixed m-t-32">
+                            <h4>PRICE DETAILS</h4>
+                            <hr />
+                            <section className="flex justify-between">
+                                <p>Price ({cart.length} items)</p>
+                                <p>₹{totalPrice}</p>
+                            </section>
+                            <section className="flex justify-between">
+                                <p>Delivery-charge</p>
+                                <p>Free</p>
+                            </section>
+                            <hr />
+                            <section className="flex justify-between">
+                                <p>Total Amount</p>
+                                <p>₹{totalPrice}</p>
+                            </section>
+                            <section className="grid justify-center m-8">
+                                <button className="order-btn" onClick={orderPlace}>PLACE ORDER</button>
+                            </section>
+                        </div> :
                         <div className="item-length p-8">
-                            <h3>{addCart.length} item in your cart</h3>
+                            <h3>{cart.length} item in your cart</h3>
                         </div>
                 }
             </div>

@@ -40,7 +40,7 @@ const Filter = () => {
                 {
                     category.map(({ category }) => {
                         return (
-                            <div>
+                            <div key={category}>
                                 <label htmlFor={{ category }} className="pointer">
                                     <input onChange={() => { productDispatch({ type: "CATEGORY", payload: category }) }} checked={byCategory.includes(category)} className="category-checkbox" type="checkbox" />
                                     {category}</label>

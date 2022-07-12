@@ -1,6 +1,6 @@
 import axios from "axios";
 import { createContext, useContext, useEffect, useReducer, useState } from "react";
-import { productReducer, addCartReducer, wishListReducer } from "./ReducerFunc";
+import { productReducer } from "./ReducerFunc";
 
 const productContext = createContext();
 
@@ -22,10 +22,6 @@ const ProductListProvider = ({ children }) => {
         byCategory: []
     });
 
-    const [addCartState, addCartDispatch] = useReducer(addCartReducer, { addCart: [] });
-
-    const [wishListState, wishListDispatch] = useReducer(wishListReducer, { addWishList: [] });
-
     const [cartItemLength, setCartItemLength] = useState(0);
     const [totalPrice, setTotalPrice] = useState(0);
     const [hideCard, setHideCard] = useState(false);
@@ -44,7 +40,7 @@ const ProductListProvider = ({ children }) => {
     }, []);
 
     return (
-        <productContext.Provider value={{ product, productState, cartItemLength, setCartItemLength, totalPrice, setTotalPrice, hideCard, setHideCard, productDispatch, addCartState, addCartDispatch, wishListState, wishListDispatch }}>
+        <productContext.Provider value={{ product, productState, cartItemLength, setCartItemLength, totalPrice, setTotalPrice, hideCard, setHideCard, productDispatch, }}>
             {children}
         </productContext.Provider>
     );

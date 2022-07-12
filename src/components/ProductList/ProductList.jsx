@@ -1,13 +1,17 @@
 import React from "react";
-import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
 import "./ProductList.css";
 import { useProductContext } from "../../contexts/ProductsListContext";
+import { useFeatureContext } from "../../contexts/featuresContext";
+import { addToCart, addToWishlist } from "../../contexts/Services";
+
 
 const ProductList = () => {
 
-    const { product, productState: { sort, byStock, byFastDelivery, byHomeCategory, byNikon, bySony, byCanon, bySamsung, byPanasonic, byRating, bySearch, byRange, byCategory }, addCartState: { addCart }, addCartDispatch, wishListState: { addWishList }, wishListDispatch } = useProductContext()
+    const { product, productState: { sort, byStock, byFastDelivery, byHomeCategory, byNikon, bySony, byCanon, bySamsung, byPanasonic, byRating, bySearch, byRange, byCategory } } = useProductContext()
+
+    const { feature: {cart, wishList}, dispatchFeature } = useFeatureContext();
 
     const transformProducts = () => {
         let sortedProducts = product;
@@ -56,15 +60,13 @@ const ProductList = () => {
         return sortedProducts
     }
 
-    const addCartHandler = (items) => {
-        addCartDispatch({ type: "ADD_TO_CART", payload: items });
-        toast.success("Item added in Cart");
-    }
-
-    const addWishlistHandler = (items) => {
-        wishListDispatch({ type: "ADD_TO_WISHLIST", payload: items });
-        toast.success("Item added in Wishlist");
-    }
+    const actionHandler = (type, items) => {
+        if(type === "AddToCart"){
+            addToCart(items, dispatchFeature);
+        }else{
+            addToWishlist(items, dispatchFeature);
+        }
+    };
 
     return (
         <div className="main-container relative">
@@ -72,16 +74,16 @@ const ProductList = () => {
             {
                 transformProducts().map(items => {
                     return (
-                        <>
+                        <div key={items._id}>
                             <div className="wishlist grid m-tb-16">
                                 <section className="flex justify-center relative">
                                     <img className="camera-images text-align" src={items.imgURL}
                                         alt="camera image" />
                                     {
-                                        addWishList.some(item => item.id === items.id) ? (
+                                        wishList.some(item => item.id === items.id) ? (
                                             <button className="like-btn wishlist-icon setColor">&#10084;</button>
                                         ) : (
-                                            <button onClick={() => addWishlistHandler(items)} className="like-btn wishlist-icon">&#10084;</button>
+                                            <button onClick={() => actionHandler("AddToWishlist",items)} className="like-btn wishlist-icon">&#10084;</button>
                                         )
                                     }
                                 </section>
@@ -99,12 +101,12 @@ const ProductList = () => {
                                         </ul>
                                         <section className="btn-container grid m-t-16">
                                             {
-                                                addCart.some(i => i.id === items.id) ? (
+                                                cart.some(i => i.id === items.id) ? (
                                                     <Link to="/mycart">
                                                         <button className="add-to-cart-btn go-btn-style">Go to Cart</button>
                                                     </Link>
                                                 ) : (
-                                                    <button disabled={!items.stock} className="add-to-cart-btn btn-style" onClick={_ => addCartHandler(items)}>
+                                                    <button disabled={!items.stock} className="add-to-cart-btn btn-style" onClick={_ => actionHandler("AddToCart",items)}>
                                                         {items.stock ? "Add To Cart" : "Out Of Stock"}</button>
                                                 )
                                             }
@@ -121,7 +123,7 @@ const ProductList = () => {
                                 </div>
                             </div>
                             <hr />
-                        </>
+                        </div>
                     )
                 })
             }

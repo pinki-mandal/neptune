@@ -1,7 +1,15 @@
 import { Link } from "react-router-dom";
+import { useAuthContext } from "../../contexts/AuthContext";
 import "./Login.css";
 
 const Login = () => {
+
+    const { LoginGuest, isLogin } = useAuthContext();
+
+    const loginGuestHandler = () => {
+        LoginGuest();
+        console.log(isLogin,"tf");
+    }
 
     return (
         <>
@@ -9,19 +17,19 @@ const Login = () => {
                 <div className="login-container">
                     <h1 className="login-heading text-align">Login</h1>
                     <section className="flex-column">
-                        <label for="/">Email address</label>
+                        <label htmlFor="/">Email address</label>
                         <input className="mail-input" type="email" placeholder="abc@gmail.com" />
-                        <label for="/">Password</label>
+                        <label htmlFor="/">Password</label>
                         <input className="pass-input" type="password" placeholder="*************" />
                     </section>
                     <section className="flex justify-between">
-                        <label for="/">
+                        <label htmlFor="/">
                             <input className="checkbox-inpt" type="checkbox" />
                             Remember me</label>
                         <Link to="/Forget" className="forget-pass-link">Forget Password?</Link>
                     </section>
                     <Link to="/all-products">
-                        <button className="login-btn">Login</button><br />
+                        <button onClick={loginGuestHandler} className="login-btn">Login</button><br />
                     </Link>
                     <Link className="create-account-link block text-align" to="/Signup">Create New Account</Link>
                 </div>
