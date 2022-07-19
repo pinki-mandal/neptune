@@ -9,11 +9,12 @@ export const addToCart = async (product, dispatch) => {
                 headers: { authorization: localStorage.getItem("authToken") }
             });
         if (status === 201) {
-            dispatch({ type: "ADD_TO_CART", payload: data.cart });
             toast.success("Item added in cart");
+            dispatch({ type: "ADD_TO_CART", payload: data.cart });
         };
     } catch (error) {
         console.log(error);
+        toast.error("Please first Login...");
     };
 };
 
@@ -59,6 +60,7 @@ export const addToWishlist = async (product, dispatch) => {
             toast.success("item added in wishlist");
         };
     } catch (error) {
+        toast.error("Please first Login...");
         console.log(error);
     };
 };

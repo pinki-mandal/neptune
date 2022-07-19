@@ -1,0 +1,99 @@
+.signup-container {
+    margin-top: 4rem;
+}
+
+.auth-container {
+    border: 2px solid var(--secondary-color);
+    padding: 1rem 2rem;
+    width: 22rem;
+    border-radius: 1rem;
+}
+
+.user-input {
+    display: block;
+    padding: .4rem;
+    margin: .1rem 0 .4rem 0;
+    width: 100%;
+}
+
+.checkbox-inpt {
+    width: .8rem;
+    height: .8rem;
+    margin-right: .4rem;
+}
+
+.login-btn {
+    width: 100%;
+    margin: .5rem 0;
+}
+
+.submit-btn {
+    margin: .2rem 0 .3rem 0;
+}
+
+.create-account-link {
+    font-size: 1rem;
+    color: var(--blue-600);
+}
+
+.forget-pass-link {
+    color: var(--blue-600);
+}
+
+label strong {
+    margin-left: .3rem;
+    color: var(--blue-600);
+}
+
+/*      Logout Style         */
+
+.logout-main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logout-container {
+    border: 2px solid var(--secondary-color);
+    border-radius: .5rem;
+    display: grid;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    padding: .5rem;
+    height: 12rem;
+    margin-top: 2rem;
+    width: fit-content;
+}
+
+.logout-avatar-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logout-avatar {
+    width: 5rem;
+}
+
+.logout-btn {
+    padding: 5px;
+    width: 100%;
+    background-color: transparent;
+    border-color: var(--secondary-color);
+}
+
+.wrong-information{
+    border-color: var(--red-900);
+}
+
+.wrong-input{
+    font-size: .7rem;
+}
+
+@media screen and (max-width:520px) {
+    html {
+        font-size: 13px;
+    }
+}

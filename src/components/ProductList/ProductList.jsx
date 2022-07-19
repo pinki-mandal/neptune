@@ -107,7 +107,7 @@ const ProductList = () => {
                                                     </Link>
                                                 ) : (
                                                     <button disabled={!items.stock} className="add-to-cart-btn btn-style" onClick={_ => actionHandler("AddToCart",items)}>
-                                                        {items.stock ? "Add To Cart" : "Out Of Stock"}</button>
+                                                        {items.stock ? "Add To Cart" : "Item out Of Stock"}</button>
                                                 )
                                             }
                                         </section>

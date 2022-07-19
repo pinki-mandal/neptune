@@ -1,3 +1,4 @@
+export { Logout } from "./Auth/Logout";
 export { AllProducts } from "./Allproducts/AllProducts";
 export { Login } from "./Auth/Login";
 export { Signup } from "./Auth/Signup";

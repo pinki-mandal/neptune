@@ -20,9 +20,9 @@ const Home = () => {
             </section>
             <h2 className="text-align m-32">Available Brands</h2>
             <section className="new-collection flex-wrap justify-evenly gap-16">
-                {category.map(({ category, image }) => {
+                {category.map(({ category, image, _id }) => {
                     return (
-                        <Link to="/all-products" >
+                        <Link to="/all-products" key={_id}>
                             <div onClick={() => { productDispatch({ type: "CATEGORY", payload: category }) }} className="category-img">
                                 <img className="img-style" src={image} />
                                 <p className="category-txt text-align">{category}</p>

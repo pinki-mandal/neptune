@@ -12,26 +12,22 @@ const MyCart = () => {
 
     const { setCartItemLength, setTotalPrice, hideCard, setHideCard } = useProductContext();
     const { feature: { cart, wishList }, dispatchFeature } = useFeatureContext();
-    const [totalPrice, setTotalValue] = useState(0);
 
-    const incrementPrice = () => {
-        cart.reduce((acc,curr) => {
-            acc = (curr.qty+1) * curr.price
-            setTotalValue(acc);
-        },0)
-    }
+    let totalValue = 0;
+    let totalItems = 0;
+    if (cart[0] !== undefined) {
+        totalValue = cart.reduce(
+            (acc, cur) => acc + cur.price * cur.qty, 0);
 
-    const decrementPrice = () => {
-        cart.reduce((acc,curr) => {
-            acc = (curr.qty+1) * curr.price
-            setTotalValue(acc);
-        },0)
-    }
+        totalItems = cart.reduce(
+            (acc, cur) => cur.qty > 1 ? acc + (cur.qty - 1) : acc, 0);
+        totalItems = totalItems + cart.length
+    };
 
     const orderPlace = () => {
         setHideCard(true);
-        setCartItemLength(cart.qty);
-        setTotalPrice(totalPrice);
+        setCartItemLength(totalItems);
+        setTotalPrice(totalValue);
         toast.success("Your order is added successfully!")
     }
 
@@ -42,7 +38,8 @@ const MyCart = () => {
             removeFromCart(items._id, dispatchFeature)
         } else if (action === "increment") {
             incrementDecrementCartValue(items._id, dispatchFeature, action)
-        } else if (action == "decrement") {
+        } else if (action == "decrement" && items.qty > 1) {
+            console.log("decrement");
             incrementDecrementCartValue(items._id, dispatchFeature, action)
         }
     }
@@ -83,9 +80,9 @@ const MyCart = () => {
                                             <small className="percent-off">15% off</small>
                                         </section>
                                         <section className="ml-16">
-                                            <button className="count-btn" onClick={() =>{ actionHandler("decrement", items), decrementPrice() }}><span class="material-icons minus-icon">remove_circle_outline</span></button>
+                                            <button className="count-btn" onClick={() => { actionHandler("decrement", items)}}><span class="material-icons minus-icon">remove_circle_outline</span></button>
                                             <span className="m-lr-8 quantity">{items.qty}</span>
-                                            <button className="count-btn" onClick={() => { actionHandler("increment", items), incrementPrice() }}><span class="material-icons plus-icon">add_circle_outline</span></button>
+                                            <button className="count-btn" onClick={() => { actionHandler("increment", items)}}><span class="material-icons plus-icon">add_circle_outline</span></button>
                                         </section>
                                     </section>
                                     <button className="cart-btn btn-style" onClick={() => actionHandler("RemoveFromCart", items)}>Remove From Cart</button>
@@ -101,8 +98,8 @@ const MyCart = () => {
                             <h4>PRICE DETAILS</h4>
                             <hr />
                             <section className="flex justify-between">
-                                <p>Price ({cart.length} items)</p>
-                                <p>₹{totalPrice}</p>
+                                <p>Price ({totalItems} items)</p>
+                                <p>₹{totalValue}</p>
                             </section>
                             <section className="flex justify-between">
                                 <p>Delivery-charge</p>
@@ -111,7 +108,7 @@ const MyCart = () => {
                             <hr />
                             <section className="flex justify-between">
                                 <p>Total Amount</p>
-                                <p>₹{totalPrice}</p>
+                                <p>₹{totalValue}</p>
                             </section>
                             <section className="grid justify-center m-8">
                                 <button className="order-btn" onClick={orderPlace}>PLACE ORDER</button>
