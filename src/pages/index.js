@@ -1,3 +1,5 @@
+export { OrderSummary } from "./OrderSummary/OrderSummary";
+export { Checkout } from "./Checkout/Checkout";
 export { Logout } from "./Auth/Logout";
 export { AllProducts } from "./Allproducts/AllProducts";
 export { Login } from "./Auth/Login";

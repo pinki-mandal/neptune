@@ -1,16 +1,14 @@
 import "./MyCart.css";
-import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Link } from "react-router-dom";
 import { useProductContext } from "../../contexts/ProductsListContext";
-import { OrderBookModal } from "../../components/index";
 import { useFeatureContext } from "../../contexts/featuresContext";
 import { addToWishlist, incrementDecrementCartValue, removeFromCart } from "../../contexts/Services";
-import { useState } from "react";
 
 
 const MyCart = () => {
 
-    const { setCartItemLength, setTotalPrice, hideCard, setHideCard } = useProductContext();
+    const { setCartItemLength, setTotalPrice } = useProductContext();
     const { feature: { cart, wishList }, dispatchFeature } = useFeatureContext();
 
     let totalValue = 0;
@@ -25,10 +23,8 @@ const MyCart = () => {
     };
 
     const orderPlace = () => {
-        setHideCard(true);
         setCartItemLength(totalItems);
         setTotalPrice(totalValue);
-        toast.success("Your order is added successfully!")
     }
 
     const actionHandler = (action, items) => {
@@ -80,9 +76,9 @@ const MyCart = () => {
                                             <small className="percent-off">15% off</small>
                                         </section>
                                         <section className="ml-16">
-                                            <button className="count-btn" onClick={() => { actionHandler("decrement", items)}}><span class="material-icons minus-icon">remove_circle_outline</span></button>
+                                            <button className="count-btn" onClick={() => { actionHandler("decrement", items) }}><span class="material-icons minus-icon">remove_circle_outline</span></button>
                                             <span className="m-lr-8 quantity">{items.qty}</span>
-                                            <button className="count-btn" onClick={() => { actionHandler("increment", items)}}><span class="material-icons plus-icon">add_circle_outline</span></button>
+                                            <button className="count-btn" onClick={() => { actionHandler("increment", items) }}><span class="material-icons plus-icon">add_circle_outline</span></button>
                                         </section>
                                     </section>
                                     <button className="cart-btn btn-style" onClick={() => actionHandler("RemoveFromCart", items)}>Remove From Cart</button>
@@ -111,7 +107,9 @@ const MyCart = () => {
                                 <p>₹{totalValue}</p>
                             </section>
                             <section className="grid justify-center m-8">
-                                <button className="order-btn" onClick={orderPlace}>PLACE ORDER</button>
+                                <Link to="/checkout">
+                                    <button onClick={orderPlace} className="order-btn">PLACE ORDER</button>
+                                </Link>
                             </section>
                         </div> :
                         <div className="item-length p-8">
@@ -119,7 +117,6 @@ const MyCart = () => {
                         </div>
                 }
             </div>
-            {hideCard && <OrderBookModal />}
         </div>
     )
 }

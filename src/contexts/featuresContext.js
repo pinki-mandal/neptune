@@ -1,9 +1,13 @@
-import React, { createContext, useContext, useReducer } from 'react';
+import React, { createContext, useContext, useReducer, useState } from 'react';
 import { FeatureReducer } from './FeatureReducer';
 
 const featureContext = createContext();
 
 const FeatureProvider = ({ children }) => {
+
+    const [addressModel, setAddressModel] = useState(false);
+    const [userDetail, setUserDetail] = useState([]);
+    const [orderSummary, setOrderSummary] = useState();
 
     const [feature, dispatchFeature] = useReducer(FeatureReducer, {
         cart: [],
@@ -11,7 +15,7 @@ const FeatureProvider = ({ children }) => {
     });
 
     return (
-        <featureContext.Provider value={{ feature, dispatchFeature }}>
+        <featureContext.Provider value={{ feature, dispatchFeature, addressModel, setAddressModel, userDetail, setUserDetail, orderSummary, setOrderSummary }}>
             {children}
         </featureContext.Provider>
     )
