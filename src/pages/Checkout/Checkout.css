@@ -1,0 +1,93 @@
+.checkout-main-container {
+    display: grid;
+    grid-template-rows: 2rem 1fr;
+    margin-top: 4.5rem;
+    height: 75vh;
+    position: relative;
+}
+
+.aaa {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+.checkout-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: .5rem;
+    justify-content: space-around;
+}
+
+/*          Select Address */
+
+.add-address-btn {
+    font-size: 1.1rem;
+    padding: .2rem;
+    text-align: center;
+}
+
+.add-address-btn span {
+    margin-top: 7px;
+    margin: auto;
+    font-size: 1.2rem;
+}
+
+.address-container {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.address-section {
+    margin-top: .5rem;
+}
+
+.address-map {
+    margin: .5rem;
+    box-shadow: 0px 0px 5px var(--secondary-color)
+}
+
+.user-name {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/*          Order Summary */
+
+.order-summary {
+    margin: 0 3rem 0 1rem;
+}
+
+.purchase-item {
+    margin: .5rem 0;
+    font-size: 1.2rem;
+}
+
+.item-price-section {
+    margin-bottom: 7px;
+}
+
+.item-price-section,
+.product-style {
+    display: flex;
+    justify-content: space-between;
+    line-height: 1.3rem;
+}
+
+.proceed-btn {
+    width: 100%;
+    font-size: 1.1rem;
+    padding: .250rem 0;
+    margin: 1rem 0;
+}
+
+.btm-hr {
+    border: 1px solid;
+}
+
+.to-deliver-name {
+    font-size: 1.2rem;
+    margin: .3rem 0;
+}

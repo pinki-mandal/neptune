@@ -12,9 +12,6 @@ const AuthProvider = ({ children }) => {
         status: localStorage.getItem("status") || false
     });
 
-    console.log(isLogin.status);
-    console.log(isLogin.status);
-
     const LoginGuest = async ({ email, password }) => {
         try {
             const { data } = await axios.post("/api/auth/login", { email, password });
