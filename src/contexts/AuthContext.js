@@ -9,7 +9,7 @@ const AuthProvider = ({ children }) => {
     const [isLogin, setIsLogin] = useState({
         user: localStorage.getItem("user"),
         authToken: localStorage.getItem("authToken"),
-        status: localStorage.getItem("status") || false
+        status: localStorage.getItem("status") // || false
     });
 
     const LoginGuest = async ({ email, password }) => {
@@ -18,6 +18,7 @@ const AuthProvider = ({ children }) => {
             localStorage.setItem("authToken", data.encodedToken);
             localStorage.setItem("user", data.foundUser.firstName);
             localStorage.setItem("status", true);
+            setIsLogin({ status: true });
             setIsLogin({ ...isLogin, user: data.foundUser.firstName });
             toast.success(`Welcome back ${data.foundUser.firstName}`);
         } catch (error) {

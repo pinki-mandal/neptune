@@ -10,7 +10,8 @@ const Navigation = () => {
     const { productDispatch } = useProductContext();
     const { feature: { cart, wishList } } = useFeatureContext();
     const { isLogin: { user, status } } = useAuthContext();
-    
+    const authStatus = localStorage.getItem("status");
+
     return (
         <header className="header-bar flex justify-between fixed">
             <div className='logo-design flex-column ml-16'>
@@ -24,7 +25,11 @@ const Navigation = () => {
                 placeholder="Search"
             />
             <ul className="login-section flex justify-around align-center">
-                <li><Link to={`${status ? "/logout" : "/login"}`} className="login-btn">Log in</Link></li>
+                {
+                    authStatus ?
+                        <li><Link to={"/logout"} className="login-btn">Log out</Link></li> :
+                        <li><Link to={"/login"} className="login-btn">Log in</Link></li>
+                }
                 <li><Link to="/wishlist" className="wishlist-btn btn"><span className="material-icons favorite-icon">favorite_border</span><span
                     className="badge">{wishList.length}</span></Link></li>
                 <li><Link to="/mycart" className="add-cart-btn btn"><span className="material-icons cart-icon">shopping_cart</span><span
