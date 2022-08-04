@@ -52,7 +52,7 @@ const ProductList = () => {
             sortedProducts = sortedProducts.filter((prod) => prod.brand.toLowerCase().includes(bySearch))
         }
         if (byRange) {
-            sortedProducts = sortedProducts.filter((prod) => prod.price >= byRange)
+            sortedProducts = sortedProducts.filter((prod) => prod.price <= byRange)
         }
         if (byCategory[0] !== undefined) {
             sortedProducts = sortedProducts.filter((prod) => byCategory.includes(prod.brand));

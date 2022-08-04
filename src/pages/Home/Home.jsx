@@ -18,8 +18,8 @@ const Home = () => {
                     <Link to="/all-products"> <button onClick={() => { productDispatch({ type: "CLEAR" }) }} className="shop-btn">Shop now</button> </Link>
                 </div>
             </section>
-            <h2 className="text-align m-32">Available Brands</h2>
-            <section className="new-collection flex-wrap justify-evenly gap-16">
+            <h1 className="text-align m-32">Available Brands</h1>
+            <section className="new-collection flex-wrap justify-around">
                 {category.map(({ category, image, _id }) => {
                     return (
                         <Link to="/all-products" key={_id}>

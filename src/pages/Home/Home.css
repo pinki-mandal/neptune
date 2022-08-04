@@ -44,20 +44,25 @@
 }
 
 .img-style {
-    height: 16rem;
-    width: 18.5rem;
+    height: 15.5rem;
+    width: 16rem;
+}
+
+.category-img {
+    padding: .4rem .5rem;
+    cursor: pointer;
+    box-shadow: 0 0 5px var(--secondary-color);
 }
 
 .category-img:hover {
-    cursor: pointer;
-    box-shadow: 2px 2px 2px var(--gray-500);
-    transition: .7s;
+    background-color: rgb(182, 225, 241);
 }
 
 .category-txt {
-    background-color: var(--gray-200);
+    background-color: transparent;
     padding: .5rem;
-    margin-top: -.3rem;
+    margin-top: -.5rem;
+    font-weight: 500;
 }
 
 @media screen and (max-width:754px) {

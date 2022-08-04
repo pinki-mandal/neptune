@@ -20,9 +20,9 @@ const WishList = () => {
         <div className="cart-container">
             <div className="wish-list-container">
                 <div className="item-length p-8 text-align">
-                    <h3 className="m-auto">{wishList.length} items in your wishlist</h3>
+                    <h3 className="m-auto">{wishList.length} item in your wishlist</h3>
                 </div>
-                {
+                { 
                     wishList.map(items => (
                         <>
                             <div className="wishlist-container p-16 m-tb-16">

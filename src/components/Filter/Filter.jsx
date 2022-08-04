@@ -8,6 +8,7 @@ const Filter = () => {
     const { category } = useCategoryContext();
 
     const { productState: { byRange, sort, byStock, byFastDelivery, byRating, byCategory }, productDispatch, } = useProductContext()
+
     return (
         <aside className="side-bar sticky">
             <div className="m-b-8 flex justify-between">
@@ -17,12 +18,10 @@ const Filter = () => {
             <hr />
             <h4 className="m-t-16">Price</h4>
             <div className="filter-price flex justify-between m-t-8">
-                <h4>2k</h4>
-                <h4>{byRange}</h4>
-                <h4>183k</h4>
+                <h4>Upto ₹{byRange}</h4>
             </div>
             <div className="slide-container">
-                <input type="range" min="1298" max="183690" onChange={(e) => productDispatch({ type: "RANGE", payload: e.target.value })} className="slider pointer" />
+                <input type="range" min="0" max="183690" value={byRange} onChange={(e) => productDispatch({ type: "RANGE", payload: e.target.value })} className="slider pointer" />
             </div>
             <hr />
             <section className="availability-section m-tb-16">

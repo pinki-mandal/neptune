@@ -77,14 +77,14 @@ const Login = () => {
                         </label>
                         <Link to="/Forget" className="forget-pass-link">Forget Password?</Link>
                     </section>
-                    <button onClick={submitHandler} className="login-btn">Login</button>
+                    <button onClick={submitHandler} className="logout-btn login-btn">Login</button>
                     <button onClick={() => {
                         setError({ isError: false });
                         setLoginDetail({
                             email: "manojkumar@gmail.com",
                             password: "manoj@12"
                         })
-                    }} className="login-btn">Login as a guest</button><br />
+                    }} className="logout-btn login-btn">Login as a guest</button><br />
                     <Link className="create-account-link block text-align" to="/Signup">Create New Account</Link>
                 </div>
             </form>

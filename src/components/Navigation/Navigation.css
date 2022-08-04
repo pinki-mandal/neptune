@@ -42,17 +42,17 @@
     outline: none;
 }
 
-.login-btn {
+.auth-btn {
     font-size: 1.1rem;
-    padding: .3rem .8rem;
-    border: 3px solid;
-    color: var(--secondary-color);
-    border-radius: .3rem;
-    background-color: var(--white);
-
+    color: var(--white);
 }
 
-.login-btn:hover {
+.auth-btn span{
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.auth-btn:hover {
     background-color: var(--secondary-color);
     color: var(--white);
 }
@@ -79,4 +79,31 @@
     position: absolute;
     left: 1.1rem;
     top: -1.3rem;
+}
+
+.profile-order-view{
+    box-shadow: 0px 0px 3px var(--secondary-color);
+    position: fixed;
+    right: 10.6rem;
+    top: 3.4rem;
+    padding: .3rem .6rem;
+    background-color: var(--white);
+}
+
+.profile-order-view p a{
+    color: var(--secondary-color);
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.profile-order-view p a:hover{
+    cursor: pointer;
+}
+
+.dropdown-arrow{
+    font-size: 2.3rem;
+    position: fixed;
+    top: 2.1rem;
+    right: 11.8rem;
+    color: var(--white);
 }

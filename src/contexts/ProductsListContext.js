@@ -18,7 +18,7 @@ const ProductListProvider = ({ children }) => {
         bySamsung: null,
         byRating: null,
         bySearch: "",
-        byRange: null,
+        byRange: 183690,
         byCategory: []
     });
 

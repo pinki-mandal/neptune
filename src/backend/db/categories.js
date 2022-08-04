@@ -11,7 +11,7 @@ export const categories = [
     category: "NIKON",
     description:
       "literature in the form of prose, especially novels, that describes imaginary events and people",
-    image: "https://3.imimg.com/data3/QJ/SV/MY-8424433/nikon-d300-digital-camera-500x500.jpg"
+    image: "https://m.media-amazon.com/images/I/81WtQ64-SOL._SX355_.jpg"
     
   },
   {
@@ -27,20 +27,20 @@ export const categories = [
     category: "SONY",
     description:
       "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
-    image: "https://c4.wallpaperflare.com/wallpaper/131/520/34/background-camera-sony-a7-wallpaper-preview.jpg"
+    image: "https://5.imimg.com/data5/XC/PF/MY-11567295/sony-a7-dslr-camera-500x500.jpg"
   },
   {
   _id: uuid(),
   category: "PANASONIC",
   description:
     "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
-  image: "https://shop.panasonic.com/sites/default/files/styles/product_item_thumb_x2_560x372/public/salsify/product/image/3039252c142af3446d97329c769bf0b031d2e24b.jpg?itok=xjl7FqUX"
+  image: "https://i5.walmartimages.com/asr/98e09420-3f99-4f99-9781-232e5972be74_1.e412824c4791a4cc60d1d9e283937923.jpeg"
 },
 {
   _id: uuid(),
   category: "SAMSUNG",
   description:
     "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
-  image: "https://i.pcmag.com/imagery/reviews/06myHqX9ZidCLVl0BwPXiTS-18.fit_scale.size_760x427.v1569471315.jpg"
+  image: "https://www.bhphotovideo.com/images/images2500x2500/samsung_galaxy_nx_mirrorless_digital_985342.jpg"
 },
 ];

@@ -92,7 +92,7 @@ const Signup = () => {
                 </label>
                 <button
                     onClick={submitHandler}
-                    className="login-btn submit-btn"
+                    className="logout-btn submit-btn"
                 >
                     Create New Account
                 </button>

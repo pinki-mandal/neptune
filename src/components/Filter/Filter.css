@@ -2,7 +2,7 @@
     padding: .8rem;
     background-color: var(--white);
     height: 90vh;
-    top: 4.6rem;
+    top: 4.4rem;
 }
 
 .clear-btn {
@@ -11,6 +11,21 @@
 
 .filter-price {
     color: var(--gray-900);
+}
+
+input[type="range"]{
+    background-color: var(--secondary-color);
+    -webkit-appearance: none;
+    border-radius: .5rem;
+}
+
+input[type='range']::-webkit-slider-thumb {
+    width: 10px;
+    -webkit-appearance: none;
+    cursor: ew-resize;
+    background: var(--black-900);
+    border-radius: 50%;
+    padding: .4rem;
 }
 
 .slide-container {
