@@ -9,7 +9,7 @@ import { addToCart, addToWishlist } from "../../contexts/Services";
 
 const ProductList = () => {
 
-    const { product, productState: { sort, byStock, byFastDelivery, byHomeCategory, byNikon, bySony, byCanon, bySamsung, byPanasonic, byRating, bySearch, byRange, byCategory } } = useProductContext()
+    const { product, productState: { sort, byStock, byFastDelivery, byHomeCategory, byRating, bySearch, byRange, byCategory } } = useProductContext()
 
     const { feature: {cart, wishList}, dispatchFeature } = useFeatureContext();
 
@@ -26,21 +26,6 @@ const ProductList = () => {
         }
         if (byFastDelivery) {
             sortedProducts = sortedProducts.filter((prod) => prod.delivery);
-        }
-        if (byNikon) {
-            sortedProducts = sortedProducts.filter((prod) => prod.brand === byNikon || prod.brand === bySony || prod.brand === byCanon || prod.brand === bySamsung || prod.brand === byPanasonic);
-        }
-        if (bySony) {
-            sortedProducts = sortedProducts.filter((prod) => prod.brand === bySony || prod.brand === byNikon || prod.brand === byCanon || prod.brand === bySamsung || prod.brand === byPanasonic);
-        }
-        if (byCanon) {
-            sortedProducts = sortedProducts.filter((prod) => prod.brand === byCanon || prod.brand === bySony || prod.brand === byNikon || prod.brand === bySamsung || prod.brand === byPanasonic);
-        }
-        if (bySamsung) {
-            sortedProducts = sortedProducts.filter((prod) => prod.brand === bySamsung || prod.brand === bySony || prod.brand === byCanon || prod.brand === byNikon || prod.brand === byPanasonic);
-        }
-        if (byPanasonic) {
-            sortedProducts = sortedProducts.filter((prod) => prod.brand === byPanasonic || prod.brand === bySony || prod.brand === byCanon || prod.brand === bySamsung || prod.brand === byNikon);
         }
         if (byHomeCategory) {
             sortedProducts = sortedProducts.filter((prod) => prod.brand === byHomeCategory)
@@ -72,6 +57,7 @@ const ProductList = () => {
         <div className="main-container relative">
             <h3 className="m-8">Showing {transformProducts().length} of 22 products</h3>
             {
+                transformProducts().length !== 0 ?
                 transformProducts().map(items => {
                     return (
                         <div key={items._id}>
@@ -125,7 +111,7 @@ const ProductList = () => {
                             <hr />
                         </div>
                     )
-                })
+                }) : <p className="text-align">No data found...</p>
             }
         </div>
     )

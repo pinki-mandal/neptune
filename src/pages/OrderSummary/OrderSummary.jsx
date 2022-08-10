@@ -5,7 +5,7 @@ import "./OrderSummary.css";
 
 export const OrderSummary = () => {
   const { orderSummary } = useFeatureContext();
-  // No Orders Placed Yet...
+
   return (
     <div className='order-summary-container'>
       {
@@ -27,7 +27,6 @@ export const OrderSummary = () => {
                               <span>Address: </span>
                               <span>{orderSummary.deliveryAddress.name}</span><br />
                               <span>{orderSummary.deliveryAddress.houseNo}, {orderSummary.deliveryAddress.city} - {orderSummary.deliveryAddress.code}</span><br />
-                              <span>{orderSummary.deliveryAddress.country}</span> <br />
                               <span>{orderSummary.deliveryAddress.mobile}</span>
                             </section>
                           ) : <h1>drfty</h1>

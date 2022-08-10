@@ -100,9 +100,9 @@ export const Checkout = () => {
                                     <label htmlFor="address">
                                         <input onClick={() => setChooseAddress(i)} type="radio" id='address' name="address" />
                                         <p className='user-name'>{i.name}</p>
-                                        <span>{i.houseNo}, </span><br />
-                                        <span> {i.city} - {i.code}</span> <br />
-                                        <span>{i.state}, </span>
+                                        <span>{i.houseNo} </span><br />
+                                        <span> {i.city}  {i.code}</span> <br />
+                                        <span>{i.state} </span>
                                         <span>{i.country}</span>
                                         <p>{i.mobile}</p>
                                     </label>

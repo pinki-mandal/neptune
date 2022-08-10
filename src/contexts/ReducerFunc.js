@@ -7,16 +7,6 @@ export const productReducer = (state, action) => {
             return { ...state, byStock: !state.byStock };
         case "FILTER_BY_DELIVERY":
             return { ...state, byFastDelivery: !state.byFastDelivery };
-        case "NIKON":
-            return { ...state, byNikon: action.payload };
-        case "SONY":
-            return { ...state, bySony: action.payload };
-        case "CANON":
-            return { ...state, byCanon: action.payload };
-        case "PANASONIC":
-            return { ...state, byPanasonic: action.payload };
-        case "SAMSUNG":
-            return { ...state, bySamsung: action.payload };
         case "RATING":
             return { ...state, byRating: action.payload };
         case "SEARCH":
@@ -37,11 +27,6 @@ export const productReducer = (state, action) => {
                 byStock: false,
                 byFastDelivery: false,
                 byHomeCategory: null,
-                byNikon: null,
-                bySony: null,
-                byCanon: null,
-                byPanasonic: null,
-                bySamsung: null,
                 byRating: null,
                 bySearch: "",
                 byRange: null,

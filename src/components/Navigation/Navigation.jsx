@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import "./Navigation.css";
 import { Link } from 'react-router-dom';
 import { useProductContext } from "../../contexts/ProductsListContext";
@@ -7,11 +7,19 @@ import { useAuthContext } from '../../contexts/AuthContext';
 
 const Navigation = () => {
 
+    let timer = useRef(null);
     const [profileShow, setProfileShow] = useState(false);
     const { productDispatch } = useProductContext();
     const { feature: { cart, wishList } } = useFeatureContext();
     const { isLogin: { user, status } } = useAuthContext();
     const authStatus = localStorage.getItem("status");
+
+    const searchHandler = (value, delay) => {
+        clearInterval(timer);
+        timer = setTimeout(() => {
+            productDispatch({ type: "SEARCH", payload: value })
+        }, delay)
+    }
 
     return (
         <header className="header-bar flex justify-between fixed">
@@ -20,7 +28,7 @@ const Navigation = () => {
                 <small className='small-txt m-auto'>Capture The World</small>
             </div>
             <input
-                onChange={(e) => { productDispatch({ type: "SEARCH", payload: e.target.value }) }}
+                onChange={(e) => { searchHandler(e.target.value, 2000) }}
                 className="search-bar"
                 type="search"
                 placeholder="Search"

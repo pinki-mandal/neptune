@@ -46,7 +46,7 @@ const AuthProvider = ({ children }) => {
         isLogin.user = localStorage.removeItem("user");
         localStorage.removeItem("status", false);
         setIsLogin({ status: false });
-        toast.info(`logout seccessfully`);
+        toast.info(`loggedout seccessfully`);
     }
 
     return (
